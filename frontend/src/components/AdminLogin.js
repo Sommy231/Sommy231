@@ -50,4 +50,4 @@ const AdminLogin = ({ setIsLoggedIn }) => {
   );
 };
 
-  
+export default AdminLogin;

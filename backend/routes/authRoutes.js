@@ -7,7 +7,9 @@ const {
   loginAdmin
 } = require("../controllers/authController");
 
-router.post("/register", registerAdmin);
+const protect = require("../middleware/authMiddleware");
+
+router.post("/register", protect, registerAdmin);
 router.post("/login", loginAdmin);
 
 module.exports = router;

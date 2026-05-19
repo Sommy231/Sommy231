@@ -8,6 +8,7 @@ const {
 } = require("../controllers/reportController");
 
 const upload = require("../middleware/uploadMiddleware");
+const protect = require("../middleware/authMiddleware");
 
 router.post(
   "/",
@@ -15,8 +16,8 @@ router.post(
   createReport
 );
 
-router.get("/", getReports);
+router.get("/", protect, getReports);
 
-router.put("/:id", updateStatus);
+router.put("/:id", protect, updateStatus);
 
 module.exports = router;

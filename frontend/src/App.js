@@ -2,6 +2,8 @@ import React, { useState } from "react";
 
 import "./App.css";
 
+import Navbar from "./components/Navbar";
+
 import ReportForm from "./components/ReportForm";
 
 import AdminDashboard from "./components/AdminDashboard";
@@ -16,6 +18,8 @@ function App() {
 
   return (
     <div>
+      <Navbar />
+
       <ReportForm />
 
       {isLoggedIn ? (
