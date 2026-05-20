@@ -38,8 +38,13 @@ app.get("/", (req, res) => {
 const PORT = process.env.PORT || 5000;
 
 const startServer = async () => {
-  await connectDB();
-  await createAdmin();
+  const isDatabaseConnected = await connectDB();
+
+  if (isDatabaseConnected) {
+    await createAdmin();
+  } else {
+    console.warn("Server started without database access.");
+  }
 
   app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
